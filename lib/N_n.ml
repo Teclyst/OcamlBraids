@@ -1,4 +1,4 @@
-module type Arg = sig
+module type Arg = sig (* We want to be able to pass an integer parameter to module Cube. This is done by wrapping it in a module and turning Cube into a functor. *)
   val arg : int
 end
 
