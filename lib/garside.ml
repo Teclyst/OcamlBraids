@@ -1,9 +1,7 @@
 module type GarsideStructure = sig
   type t (* Type representing canonical factors.*)
-  type parameter (* As Ocaml does not support parameterizing modules with values, we have to work around to gather information for cases where a module may represent several garside structures *)
-  (* For example, parameter would be an int for braid groups, representing width. *)
   val is_trivial : t -> bool
-  val delta : parameter -> t (* The Garside element may depend on a parameter. *)
+  val delta : t
   val delta_normal : t -> t -> (t * t) (* Computes the delta normal decomposition of a product of two canonical factors. *)
   val to_string : t -> string
 end
