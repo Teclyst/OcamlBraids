@@ -1,10 +1,10 @@
-module type Arg = sig (* We want to be able to pass an integer parameter to module Cube. This is done by wrapping it in a module and turning Cube into a functor. *)
+module type Dim = sig (* We want to be able to pass an integer parameter to module Cube. This is done by wrapping it in a module and turning Cube into a functor. *)
   val arg : int
 end
 
-module Cube(Dim : Arg) = struct (* Implements a Garside structure for the Dim.arg-dimensional cube. *)
+module Cube(Dim : Dim) = struct (* Implements a Garside structure for the Dim.arg-dimensional cube. *)
   type t = bool array (* false is 0 and true is 1. *)
-  type parameter = int
+
   let (is_trivial : t -> bool) =
     Array.for_all not (* Check if all coordinates are 0. *)
   let delta = (Array.make Dim.arg true : t)
